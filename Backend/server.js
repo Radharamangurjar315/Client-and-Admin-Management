@@ -22,7 +22,6 @@ app.use(cors({
     'http://localhost:5173',
     'http://localhost:5000'
   ],
-  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -76,5 +75,4 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`✅ Server is running on port ${PORT}`);
-  console.log(`🔗 API URL: http://localhost:${PORT}/api`);
 });
