@@ -1,7 +1,20 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'https://client-and-admin-management.onrender.com'
+  baseURL: `${import.meta.env.VITE_API_URL || 'https://client-and-admin-management.onrender.com'}/api`,
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  withCredentials: true
 });
+
+// Add response interceptor for better error handling
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    console.error('API Error:', error.response?.data || error.message);
+    return Promise.reject(error);
+  }
+);
 
 export default API;
