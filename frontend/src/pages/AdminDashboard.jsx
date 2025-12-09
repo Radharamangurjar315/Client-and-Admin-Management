@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import AdminSidebar from '../components/AdminSidebar';
+import LogoutButton from '../components/LogoutButton';
 import API from '../services/api';
 
 export default function AdminDashboard() {
